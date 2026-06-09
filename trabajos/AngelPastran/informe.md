@@ -1,54 +1,88 @@
-La estructura de la base de datos es:
+# Informe de Base de Datos - BDventas
 
-Descripción general
+## 1. Descripción general
 
-Sistema para gestionar clientes, comerciales y auditorías de cambios en comisiones.
+La base de datos BDventas está diseñada para gestionar información relacionada con clientes, comerciales y auditorías de cambios en las comisiones de los vendedores.
 
-Tablas
-clientes
+---
 
-Guarda información de clientes:
+## 2. Estructura de la base de datos
 
-Nombre
-Apellidos
-Ciudad
-Email
-Teléfono
-comercial
+### Tabla CLIENTES
 
-Guarda información de vendedores:
+Almacena información de los clientes:
 
-Nombre
-Apellidos
-Teléfono
-Comisión
-auditoria
+- id_cliente
+- nombre_c
+- apellido1
+- apellido2
+- ciudad
+- email
+- tlf_c
+- tlf_movil
 
-Registra cambios realizados sobre comerciales:
+### Tabla COMERCIAL
 
-Usuario
-Fecha
-Comisión anterior
-Comisión nueva
-Análisis
-Aspectos positivos
-Estructura sencilla.
-Datos normalizados.
-Uso de claves primarias.
-Aspectos mejorables
-Faltan claves foráneas.
-No existe tabla de ventas.
-No existe tabla de pedidos.
-No existe relación cliente-comercial.
-Problemas detectados
-Ausencia de restricciones referenciales.
-Algunos campos admiten valores NULL innecesarios.
-No existe trazabilidad completa de ventas.
-Propuestas de mejora
-Crear tabla ventas.
-Crear tabla pedidos.
-Relacionar clientes y comerciales.
-Añadir claves foráneas.
+Almacena información de los comerciales:
+
+- id_comercial
+- nombre_co
+- apellido1
+- apellido2
+- tlf_co
+- comision
+- importe
+
+### Tabla AUDITORIA
+
+Registra modificaciones realizadas sobre los comerciales:
+
+- id_auditoria
+- usuario
+- fecha_modificacion
+- id_comercial
+- comisionAnterior
+- comisionActual
+
+---
+
+## 3. Análisis
+
+### Aspectos positivos
+
+- Estructura sencilla y fácil de comprender.
+- Uso de claves primarias.
+- Separación adecuada de la información.
+- Existencia de auditoría para registrar cambios.
+
+### Aspectos mejorables
+
+- No existen claves foráneas explícitas.
+- No existe una tabla de ventas.
+- No existe relación directa entre clientes y comerciales.
+
+---
+
+## 4. Problemas detectados
+
+- Ausencia de integridad referencial.
+- Algunos campos permiten valores NULL innecesarios.
+- No existe trazabilidad completa de las ventas realizadas.
+
+---
+
+## 5. Propuestas de mejora
+
+- Crear una tabla ventas.
+- Crear una tabla pedidos.
+- Relacionar clientes y comerciales mediante claves foráneas.
+- Añadir restricciones de integridad referencial.
+
+---
+
+## 6. Conclusión
+
+La base de datos es adecuada para prácticas básicas de SQL. Sin embargo, requiere más relaciones y tablas para representar correctamente un entorno comercial real.
 Conclusión
 
 La base de datos es adecuada para prácticas de SQL básicas, aunque necesita más relaciones para representar correctamente un sistema comercial real.
